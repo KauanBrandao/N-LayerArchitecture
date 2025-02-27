@@ -33,4 +33,16 @@ public class LancheApplication {
     public double calcularLanche(Lanche lanche, int quantidade) {
         return lanche.getPreco() * quantidade;
     }
+
+    public void atualizarLanche(int codigo, Lanche lanche, String novaImagem) {
+        this.lancheRepository.atualizar(codigo, lanche);
+        this.lancheService.atualizar(codigo, lanche, novaImagem);
+        this.lancheService.salvar(lanche);
+    }
+
+
+    public void excluirLanche(int codigo, Lanche lanche) {
+        this.lancheRepository.remover(codigo);
+        this.lancheService.excluir(codigo, lanche);
+    }
 }

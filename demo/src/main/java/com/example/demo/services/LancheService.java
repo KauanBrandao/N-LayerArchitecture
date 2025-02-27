@@ -8,8 +8,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
+
 public class LancheService {
-    private String filePath = "C:\\Users\\aluno.fsa\\ImagensLancheDestino\\";
+    private String filePath = "C:\\Users\\k4uan\\Pictures";
 
     public Lanche getById(int id) {
         return null;
@@ -33,14 +34,29 @@ public class LancheService {
     public boolean salvar(Lanche lanche) {
         Path path = Paths.get(lanche.getImagem());
 
-        Path destinationPath = Paths.get(String.format("%s%d.%s", filePath, lanche.getCodigo(), getFileExtension(path)));
+
+        Path pastaDestino = Paths.get(filePath);
+        if (!Files.exists(pastaDestino)) {
+            try {
+                Files.createDirectories(pastaDestino);
+                System.out.println("Diretório de imagens criado: " + pastaDestino);
+            } catch (IOException e) {
+                System.err.println("Erro ao criar diretório de imagens: " + e.getMessage());
+                return false;
+            }
+        }
+
+
+        Path destino = Paths.get(String.format("%s\\%d.%s", filePath, lanche.getCodigo(), getFileExtension(path)));
 
         if (Files.exists(path)) {
             try {
-                Files.copy(path, destinationPath, StandardCopyOption.REPLACE_EXISTING);
-                lanche.setImagem(destinationPath.toString());
+                Files.copy(path, destino, StandardCopyOption.REPLACE_EXISTING);
+                lanche.setImagem(destino.toString());
+                System.out.println("Imagem salva com sucesso em: " + destino);
                 return true;
             } catch (IOException e) {
+                System.err.println("Erro ao salvar a imagem: " + e.getMessage());
                 return false;
             }
         }
@@ -48,11 +64,46 @@ public class LancheService {
         return false;
     }
 
-    public void excluir(int id, Lanche Lanche) {
 
+    public void excluir(int codigo, Lanche lanche) {
+        Path path = Paths.get(lanche.getImagem());
+
+        if (Files.exists(path)) {
+            try {
+                Files.delete(path);
+            } catch (IOException e) {
+                System.err.println("Erro ao excluir o arquivo: " + e.getMessage());            }
+        }
     }
 
-    public void atualizar(int id, Lanche Lanche) {
+    public void atualizar(int codigo, Lanche lanche, String novaImagem) {
+        Path pathAtual = Paths.get(lanche.getImagem());
+
+
+        if (Files.exists(pathAtual)) {
+            try {
+                Files.delete(pathAtual);
+                System.out.println("Imagem antiga excluída com sucesso.");
+            } catch (IOException e) {
+                System.err.println("Erro ao excluir a imagem antiga: " + e.getMessage());
+            }
+        }
+
+
+        lanche.setImagem(novaImagem);
+
+
+        Path novoPath = Paths.get(novaImagem);
+        try {
+            Files.copy(Paths.get(novaImagem), novoPath, StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("Nova imagem salva com sucesso.");
+        } catch (IOException e) {
+            System.err.println("Erro ao salvar a nova imagem: " + e.getMessage());
+        }
 
     }
 }
+
+
+
+

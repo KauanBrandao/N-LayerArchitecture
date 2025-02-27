@@ -28,4 +28,12 @@ public class LancheFacade {
     public double calcularLanche(Lanche lanche, int quantidade) {
         return this.lancheApplication.calcularLanche(lanche, quantidade);
     }
+
+    public void atualizar(int codigo, Lanche lanche, String novaImagem) {
+        lancheApplication.atualizarLanche(codigo, lanche, novaImagem);
+    }
+
+    public void excluir(int codigo, Lanche lanche) {
+        lancheApplication.excluirLanche(codigo, lanche);
+    }
 }

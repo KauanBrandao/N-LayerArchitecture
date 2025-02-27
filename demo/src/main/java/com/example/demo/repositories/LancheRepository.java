@@ -9,14 +9,12 @@ public class LancheRepository {
     private List<Lanche> lanches = new ArrayList<>();
 
     public Lanche buscarPorCodigo(int codigo) {
-        Lanche lanche = lanches
-                .stream()
+        return lanches.stream()
                 .filter(p -> p.getCodigo() == codigo)
                 .findFirst()
-                .get();
-
-        return lanche;
+                .orElse(null); // Retorna null se não encontrar
     }
+
 
     public List<Lanche> buscar() {
         return lanches;
