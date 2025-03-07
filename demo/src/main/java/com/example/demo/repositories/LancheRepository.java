@@ -1,10 +1,12 @@
 package com.example.demo.repositories;
 
 import com.example.demo.entities.Lanche;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class LancheRepository {
     private List<Lanche> lanches = new ArrayList<>();
 

@@ -1,6 +1,8 @@
 package com.example.demo.services;
 
 import com.example.demo.entities.Lanche;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -8,7 +10,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
-
+@Service
 public class LancheService {
     private String filePath = "C:\\Users\\k4uan\\Pictures";
 

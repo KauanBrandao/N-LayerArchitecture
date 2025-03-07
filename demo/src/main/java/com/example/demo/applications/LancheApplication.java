@@ -3,13 +3,17 @@ package com.example.demo.applications;
 import com.example.demo.entities.Lanche;
 import com.example.demo.repositories.LancheRepository;
 import com.example.demo.services.LancheService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class LancheApplication {
     private LancheService lancheService;
     private LancheRepository lancheRepository;
 
+    @Autowired
     public LancheApplication(
             LancheService lancheService,
             LancheRepository lancheRepository) {

@@ -14,20 +14,11 @@ import java.util.List;
 @RequestMapping("/api")
 public class LancheController {
 
-    private static LancheRepository lancheRepository;
-    private static LancheService lancheService;
-    private static LancheApplication lancheApplication;
-    private static LancheFacade lancheFacade;
+    private final LancheFacade lancheFacade;
 
-    private static void injetarDependencias() {
-        lancheRepository = new LancheRepository();
-        lancheService = new LancheService();
-        lancheApplication = new LancheApplication(lancheService, lancheRepository);
-        lancheFacade = new LancheFacade(lancheApplication);
-    }
-
-    public LancheController() {
-        injetarDependencias();
+    @Autowired
+    public LancheController(LancheFacade lancheFacade) {
+        this.lancheFacade = lancheFacade;
 
         Lanche lanche1 = new Lanche(1, "X-tudo", 19.90, "");
         Lanche lanche2 = new Lanche(2, "X-cheddar", 19.90, "");
