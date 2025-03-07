@@ -81,7 +81,7 @@ public class DemoApplication {
 
                     Lanche lanche = lancheFacade.buscarPorCodigo(cod);
                     if (lanche != null) {
-                        lancheFacade.excluir(cod, lanche);
+                        lancheFacade.excluir(cod);
                         System.out.println("Lanche excluído com sucesso!\n");
                     } else {
                         System.out.println("Lanche não encontrado!\n");

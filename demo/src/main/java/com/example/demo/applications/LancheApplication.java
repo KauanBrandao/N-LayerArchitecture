@@ -41,8 +41,7 @@ public class LancheApplication {
     }
 
 
-    public void excluirLanche(int codigo, Lanche lanche) {
+    public void excluirLanche(int codigo) {
         this.lancheRepository.remover(codigo);
-        this.lancheService.excluir(codigo, lanche);
     }
 }

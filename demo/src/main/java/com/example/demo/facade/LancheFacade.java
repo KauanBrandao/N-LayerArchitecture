@@ -2,7 +2,6 @@ package com.example.demo.facade;
 
 import com.example.demo.applications.LancheApplication;
 import com.example.demo.entities.Lanche;
-import com.example.demo.repositories.LancheRepository;
 
 import java.util.List;
 
@@ -13,8 +12,9 @@ public class LancheFacade {
         this.lancheApplication = lancheApplication;
     }
 
-    public void cadastrar(Lanche lanche) {
+    public Lanche cadastrar(Lanche lanche) {
         this.lancheApplication.cadastrar(lanche);
+        return lanche;
     }
 
     public List<Lanche> buscar() {
@@ -29,11 +29,12 @@ public class LancheFacade {
         return this.lancheApplication.calcularLanche(lanche, quantidade);
     }
 
-    public void atualizar(int codigo, Lanche lanche, String novaImagem) {
+    public Lanche atualizar(int codigo, Lanche lanche, String novaImagem) {
         lancheApplication.atualizarLanche(codigo, lanche, novaImagem);
+        return lanche;
     }
 
-    public void excluir(int codigo, Lanche lanche) {
-        lancheApplication.excluirLanche(codigo, lanche);
+    public void excluir(int codigo) {
+        lancheApplication.excluirLanche(codigo);
     }
 }
