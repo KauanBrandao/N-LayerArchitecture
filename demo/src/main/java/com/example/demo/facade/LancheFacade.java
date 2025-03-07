@@ -29,8 +29,8 @@ public class LancheFacade {
         return this.lancheApplication.calcularLanche(lanche, quantidade);
     }
 
-    public Lanche atualizar(int codigo, Lanche lanche, String novaImagem) {
-        lancheApplication.atualizarLanche(codigo, lanche, novaImagem);
+    public Lanche atualizar(int codigo, Lanche lanche) {
+        lancheApplication.atualizarLanche(codigo, lanche);
         return lanche;
     }
 

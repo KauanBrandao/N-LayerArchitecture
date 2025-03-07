@@ -49,8 +49,8 @@ public class LancheController {
     }
 
     @PutMapping("/atualizar/{codigo}")
-    public Lanche atualizar(@PathVariable int codigo, @RequestBody Lanche lanche, @PathVariable String novaImagem) {
-        return lancheFacade.atualizar(codigo, lanche, novaImagem);
+    public Lanche atualizar(@PathVariable int codigo, @RequestBody Lanche lanche) {
+        return lancheFacade.atualizar(codigo, lanche);
     }
 
     @DeleteMapping("/deletar/{codigo}")

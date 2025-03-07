@@ -70,7 +70,7 @@ public class DemoApplication {
                     String novaImagem = scanner.nextLine();
 
                     Lanche novoLanche = new Lanche(cod, nome, preco, novaImagem);
-                    lancheFacade.atualizar(cod, novoLanche, novaImagem);
+                    lancheFacade.atualizar(cod, novoLanche);
                     System.out.println("Lanche atualizado com sucesso!\n");
                 }
 

@@ -34,9 +34,9 @@ public class LancheApplication {
         return lanche.getPreco() * quantidade;
     }
 
-    public void atualizarLanche(int codigo, Lanche lanche, String novaImagem) {
+    public void atualizarLanche(int codigo, Lanche lanche) {
         this.lancheRepository.atualizar(codigo, lanche);
-        this.lancheService.atualizar(codigo, lanche, novaImagem);
+        this.lancheService.atualizar(codigo, lanche);
         this.lancheService.salvar(lanche);
     }
 
