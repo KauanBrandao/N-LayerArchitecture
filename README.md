@@ -15,6 +15,28 @@
     - Facilidade de manutenção.
     - Escalabilidade 
     - Testabilidade
+    <br> <br> <br> <br> <br>
  
  
+
+## `ApiREST ou ApiRESTFUL: O que é?`
+
+ - #### Uma API REST (Representational State Transfer) é um conjunto de regras que permite a comunicação entre sistemas diferentes através da WEB. Ela segue o modelo cliente-Servidor e utiliza o protocolo HTTP (HyperText Transfer Protocol) para troa de informações no formato JSON ou XML. 
+ - #### Em termos simples, uma API REST permite que um sistema envie e e receba dados de outro sistema pela internet  de forma organizada e padronizada.
+
+ <br>  
+
+ - ### Princicpios definidos por Roy Fielding
+
+ -  1. `Arquitetura cliente-servidor:` O cliente faz requisições para um servidor, e o servidor responde com os dados necessários.
+ - 2. `Sem estado (Stateless):` Cada requisição deve conter todas as informações necessárias para ser processada. O servidor nao armazena o estado da requisição anterior.
+ - 3. `Cacheável:` Para melhorar o desempenho, as respostas podem ser armazenadas em cache.
+ - 4. `Interface Uniforme:`URLs bem definidas e métodos HTTP padronizados.
+ - 5. `Sistema em camadas:`A API tem que estar bem definida entre as suas camadas: Banco de daods, servidor, segurança, etc.
+ 
+   
+   
+   
+   
+   
 
